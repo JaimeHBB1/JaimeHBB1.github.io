@@ -1,0 +1,144 @@
+/* Estilo General */
+body, html {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Fondo desenfocado */
+.background-blur {
+    background: url('../imag/logoUPM-background.png') no-repeat center center fixed;    background-size: cover;
+    position: absolute;
+    filter: blur(4px);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+/* Panel Central */
+.center-panel {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;              /*tmñn*/
+    border-radius: 10px;        /*redonez*/
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    z-index: 1;
+    width: 90%;
+    max-width: 500px; /* Máximo ancho para pantallas más grandes */
+}
+
+/* Botones de Navegación */
+.navigation-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between; /*para poner cada uno a un lado*/
+}
+
+.navigation-buttons button {
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.navigation-buttons button.anterior {
+    background-color: #FF5733; /* Rojo */
+    color: white;
+}
+
+.navigation-buttons button.siguiente {
+    background-color: #4CAF50; /* Verde */
+    color: white;
+}
+
+.navigation-buttons button:hover {
+    filter: brightness(0.9); /* Efecto hover */
+}
+
+/* Botones de Imagen */
+.image-buttons {
+    position: absolute;
+    width: 100%;
+    top: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 2;
+}
+
+.image-button.left {
+    width: 60px;
+    height: 75px;
+    resize: both;
+}
+
+.image-button.right {
+    width: 85px;
+    height: 65px;
+    resize: both;
+}
+
+/* Panel de Tema */
+.tema-panel {
+    display: none;
+    background: rgba(255, 255, 255, 1);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    z-index: 1;
+    width: 90%;
+    max-width: 500px;
+}
+
+.tema-panel ul {
+    list-style: none;
+    padding: 0;
+}
+
+.tema-panel li {
+    margin: 10px 0;
+}
+
+.tema-panel button {
+    display: inline-block;
+    margin: 5px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    /* Ajustes para pantallas pequeñas */
+    .center-panel, .tema-panel {
+        width: 100%;
+        max-width: 90%; /* Reduce el tamaño máximo */
+    }
+
+    .navigation-buttons {
+        flex-direction: column; /* Cambia la dirección a columna */
+        align-items: center;
+    }
+
+    .navigation-buttons button {
+        margin: 10px 0; /* Agrega margen entre los botones */
+    }
+
+    .image-buttons {
+        flex-direction: column; /* Cambia la dirección a columna */
+        align-items: center;
+    }
+
+    .image-button.left, .image-button.right {
+        width: 40px;
+        height: 50px;
+    }
+}

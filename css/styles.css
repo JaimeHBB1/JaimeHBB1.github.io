@@ -1,0 +1,240 @@
+/* Reinicio básico */
+* {
+    margin: 0; /* Elimina márgenes por defecto */
+    padding: 0; /* Elimina el relleno por defecto */
+    box-sizing: border-box; /* Incluye el padding y borde en el ancho y alto total de los elementos */
+    font-family: Arial, Helvetica, sans-serif; /* Establece la fuente por defecto */
+}
+
+/* Fondo desenfocado */
+body, html {
+    height: 100%; /* Establece la altura al 100% del viewport */
+    width: 100%; /* Establece el ancho al 100% del viewport */
+    display: flex; /* Utiliza flexbox para la alineación */
+    align-items: center; /* Centra verticalmente los elementos */
+    justify-content: center; /* Centra horizontalmente los elementos */
+    position: relative; /* Posiciona el contenedor relativo a su contenedor más cercano */
+}
+
+.background-blur {
+    background: url('../imag/logoUPM-background.png') no-repeat center center fixed; /* Imagen de fondo centrada y fija */
+    background-size: cover; /* La imagen cubre todo el contenedor */
+    filter: blur(4px); /* Aplica un efecto de desenfoque */
+    position: absolute; /* Posición absoluta en relación al contenedor */
+    top: 0; /* Alinea al borde superior */
+    left: 0; /* Alinea al borde izquierdo */
+    width: 100%; /* Ancho completo del contenedor */
+    height: 100%; /* Altura completa del contenedor */
+    z-index: -1; /* Coloca el fondo detrás de otros elementos */
+    overflow: hidden; /* Oculta el desbordamiento del contenido */
+}
+
+/* Panel Central */
+.center-panel {
+    background: rgba(255, 255, 255, 0.9); /* Fondo blanco con opacidad */
+    padding: 20px; /* Espaciado interno del panel */
+    border-radius: 10px; /* Esquinas redondeadas, cuanto mayor px mas redondo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra alrededor del panel */
+    text-align: center; /* Texto centrado */
+    z-index: 1; /* Coloca el panel sobre otros elementos */
+    position: relative; /* Posición relativa a su contenedor */
+}
+
+h2 {
+    margin-top: 10px; /* Margen superior */
+    margin-bottom: 12px; /* Margen inferior */
+    color: #333; /* Color del texto */
+}
+
+select, button {
+    padding: 10px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de fuente */
+    margin-top: 10px; /* Margen superior */
+    margin-bottom: 10px; /* Margen inferior */
+    border: 1px solid #ccc; /* Borde de 1px de color gris claro */
+    border-radius: 5px; /* Esquinas redondeadas */
+}
+
+button {
+    background-color: #2220bc; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cursor de puntero al pasar sobre el botón */
+}
+
+button:hover {
+    background-color: #3267cbda; /* Color de fondo del botón al pasar el cursor */
+}
+
+.center-panel .asignatura {         /*SyS*/
+    margin-top: 5px; /* Margen superior */
+    margin-bottom: -5px; 
+    font-size: 14px; /* Tamaño de fuente */
+    color: #555; /* Color del texto */
+    text-align: center; /* Texto centrado */
+}
+
+/* Panel de Tema */
+.tema-panel {
+    display: none; /* Oculta el panel por defecto */
+    background: rgba(255, 255, 255, 1); /* Fondo blanco sin opacidad */
+    padding: 15px; /* Espaciado del panel de +*/
+    border-radius: 10px; /* Esquinas redondeadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra alrededor del panel */
+    text-align: center; /* Texto centrado */
+    position: relative; /* Posición relativa a su contenedor */
+    z-index: 1; /* Coloca el panel sobre otros elementos */
+}
+
+.scrollable-container {
+    max-height: 300px; /* Altura máxima del contenedor */
+    overflow-y: auto; /* Permite desplazamiento vertical si el contenido supera la altura */
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde de 1px de color gris claro */
+    border-radius: 1px; /* Esquinas ligeramente redondeadas */
+    margin: 10px 0; /* Márgenes verticales */
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical */
+}
+
+.scrollable-container ul {
+    list-style: none; /* Sin estilo de lista por defecto */
+    padding: 0; /* Sin espaciado interno */
+}
+
+.scrollable-container li {
+    margin: 10px 0; /* Márgenes verticales entre los elementos de la lista */
+}
+
+.scrollable-container button {
+    display: block; /* Botón en formato de bloque */
+    width: 100%; /* Ancho completo */
+    text-align: left; /* Texto alineado a la izquierda */
+    padding: 12px; /* Espaciado interno */
+    background-color: #2826b0; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cursor de puntero al pasar sobre el botón */
+    border-radius: 5px; /* Esquinas redondeadas */
+}
+
+.scrollable-container button:hover {
+    background-color: #3267cbda; /* Color de fondo del botón al pasar el cursor */
+}
+
+.navigation-buttons {
+    display: flex; /* Usa flexbox para alinear botones */
+    justify-content: space-between; /* Espacio entre los botones */
+    margin: 5px; /* Margen superior, antes era solo top */ 
+}
+
+.navigation-buttons button {
+    flex: 1; /* Los botones ocupan el mismo espacio */
+    margin: 0 5px; /* Márgenes horizontales entre los botones */
+}
+
+.navigation-buttons button.anterior {
+    background-color: #ff5833; /* Color de fondo del botón "anterior" */
+}
+
+.navigation-buttons button.anterior:hover {
+    background-color: #ff6b49; /* Color de fondo del botón "anterior" al pasar el cursor */
+}
+
+.navigation-buttons button.siguiente {
+    background-color: #4CAF50; /* Color de fondo del botón "siguiente" */
+}
+
+.navigation-buttons button.siguiente:hover {
+    background-color: #45a049; /* Color de fondo del botón "siguiente" al pasar el cursor */
+}
+
+/* Botones de Imagen */
+.image-buttons {
+    position: absolute; /* Posiciona absolutamente dentro del contenedor */
+    top: 10px; /* Margen superior */
+    left: 10px; /* Margen izquierdo */
+    right: 10px; /* Margen derecho */
+    display: flex; /* Usa flexbox para alinear botones */
+    justify-content: space-between; /* Espacio entre los botones */
+    z-index: 2; /* Coloca los botones sobre otros elementos */
+}
+
+.image-button {
+    height: 90px; /* Altura de los botones de imagen */
+    margin:  auto+10px;
+    margin-top: 10px;
+    transition: transform 0.3s ease; /* Transición suave al transformar */
+}
+
+.image-button.left {
+    margin-right: auto; /* Margen automático a la derecha para alinear a la izquierda */
+}
+
+.image-button.right {
+    margin-left: auto; /* Margen automático a la izquierda para alinear a la derecha */
+}
+
+.image-button:hover {
+    transform: scale(1.2); /* Escala los botones al pasar el cursor */
+}
+
+/* Panel de Información */
+.info-panel {
+    line-height: 1.5;
+    display: none; /* Oculta el panel por defecto */
+    background: rgba(255, 255, 255, 0.9); /* Fondo blanco con opacidad */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 10px; /* Esquinas redondeadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra alrededor del panel */
+    text-align: center; /* Texto centrado */
+    z-index: 1; /* Coloca el panel sobre otros elementos */
+    white-space: pre-line;  /*para que cada frase nueva sea en otra linea,  se podria hacer en html con <br>*/
+}
+
+.info-button {
+    position: absolute; /* Posiciona absolutamente dentro del contenedor */
+    top: 8px; /* Margen superior */
+    right: 8px; /* Margen derecho */
+    cursor: pointer; /* Cursor de puntero al pasar sobre el botón */
+}
+
+.info-button img {
+    height: 20px; /* Altura de la imagen del botón de información */
+}
+
+/* Botón de Manual */
+.manual-panel {
+    line-height: 1.5;
+    display: none; /* Oculta el panel por defecto */
+    background: rgba(255, 255, 255, 0.9); /* Fondo blanco con opacidad */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 10px; /* Esquinas redondeadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra alrededor del panel */
+    text-align: center; /* Texto centrado */
+    z-index: 1; /* Coloca el panel sobre otros elementos */
+    white-space: pre-line;  /*para que cada frase nueva sea en otra linea,  se podria hacer en html con <br>*/
+}
+.manual-button {
+    position: absolute; /* Posiciona absolutamente dentro del contenedor */
+    top: 8px; /* Margen superior */
+    left: 10px; /* Ajusta el margen izquierdo según la necesidad */
+    cursor: pointer; /* Cursor de puntero al pasar sobre el botón */
+}
+
+.manual-button img {
+    height: 20px; /* Altura de la imagen del botón de manual */
+}
+
+
+.pregunta-panel {
+    display: none; /* Asegúrate de que los paneles de preguntas están ocultos por defecto */
+    background: rgba(255, 255, 255, 0.95); /* Fondo blanco con opacidad */
+    padding: 15px; /* Espaciado interno */
+    border-radius: 10px; /* Esquinas redondeadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra alrededor del panel */
+    text-align: center; /* Texto centrado */
+    z-index: 2; /* Coloca el panel sobre otros elementos */
+    margin-top: 10px; /* Margen superior */
+}
+

@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Desplegable</title>
+    <link rel="shortcut icon" href="imag/logoETSIST-web.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="background-blur"></div>
+
+    <!-- Botones de Imagen -->
+    <div class="image-buttons">
+        <a href="https://www.etsist.upm.es/" target="_blank">
+            <img src="imag/logoETSIST.png" alt="ETSIST" class="image-button left">
+        </a>
+        <a href="https://www.upm.es/" target="_blank">
+            <img src="imag/EscUpm.gif" alt="UPM" class="image-button right">
+        </a>
+    </div>
+
+    <!-- Panel Central -->
+    <div class="center-panel" id="main-panel">
+        <div class="info-button" onclick="mostrarInfo()">
+            <img src="imag/infoo.jpg" alt="Info">
+        </div>
+
+        <div class="manual-button" onclick="mostrarManual()">
+            <img src="imag/book.jpg" alt="Manual">
+        </div>
+
+        <h2>¿En qué tema necesitas ayuda?</h2>
+        <select id="tema-selector">
+            <option value="tema1">Tema 1</option>
+            <option value="tema2">Tema 2</option>
+            <option value="tema3">Tema 3</option>
+            <option value="tema4">Tema 4</option>
+        </select>
+        <button onclick="mostrarTema()">Mostrar Tema</button>
+        <div class="asignatura">Asignatura: Señales y sistemas</div>
+    </div>
+
+    <!-- Panel de Información -->
+    <div class="info-panel" id="info-panel">
+        <h2>Información sobre el uso de la web</h2>
+        <p>En esta web puedes encontrar ayuda sobre el temario relacionado con Señales y Sistemas. 
+            Usa el menú principal para elegir un tema y presiona "Mostrar Tema" para acceder al contenido correspondiente. 
+            En cada tema se muestran <i>prompts</i>, para que copies y pegues en el ChatGPT y que
+            este te explique el concepto teorico corresponiente de una manera eficaz y sencilla. 
+            Puedes navegar rapidamente entre los temas con los botones de "Siguente Tema" y "Anterior Tema"
+            Antes de comenzar el chat, es recomendable poner esta introducción: 
+            Buenas soy alumno de la ETSIST y tengo dudas en la asignaturas de señales y sistemas, me podrias ayudar
+        </p>
+        <button onclick="volverAlMenu()">Volver al Menú Principal</button>
+    </div>
+
+    <!-- Panel Manual -->
+    <div class="manual-panel" id="manual-panel">
+        <h2>Manual de Usuario</h2>
+        <p>Las Recomendaciones de uso para esta guía son las siguientes
+            -Ser lo más claro y conciso posible.
+            -Hablarle de una manera correcta y clara. Esta no hace falta  que sea super formal, ya que la IA se adapta a ti.
+            -Si se desea preguntar sobre ecuaciones, si es posible hacerlo mediante imagenes, o bien usando 
+            claramente () para que no haya posible confusión.
+            -Para expresiones con Ω o ω, usar omega, omh o directamente w.
+            -Antes de comenzar el chat, se recomienta poner esta introducción: 
+            Buenas soy alumno de la ETSIST y tengo dudas en la asignaturas de señales y sistemas, me podrias ayudar.
+            -Cuanto más contexto le des sobre el concepto del que tienes dudas y sobre tu nivel de conocimiento,
+            mejor será la respuesta obtenida.
+        </p>
+        <button onclick="volverAlMenu()">Volver al Menú Principal</button>
+    </div>
+
+    <!-- Panel para Tema 1 //100%--> 
+    <div class="tema-panel" id="tema1-panel">
+        <h2>Tema 1: Introducción a las señales en el dominio del tiempo.</h2>
+        <div class="scrollable-container">
+            <ul>
+                <li>
+                    <button onclick="mostrarPregunta('pregunta1', 'tema1')">1. Señales: Definición y clasificación.</button>
+                    <div id="pregunta1-panel-tema1" class="pregunta-panel">
+                        <h3>Frases para IA:</h3>
+                        <ul>
+                            <li>Explícame la definición de señales en el dominio del tiempo.</li>
+                        </ul>
+                        <button onclick="volverATema('tema1')">Cerrar</button>
+                    </div>
+                </li>
+                <li>
+                    <button onclick="mostrarPregunta('pregunta2', 'tema1')">2. Transformaciones de la variable independiente y propiedades de las señales.</button>
+                    <div id="pregunta2-panel-tema1" class="pregunta-panel">
+                        <h3>Frases para IA:</h3>
+                        <ul>
+                            <li>Me puedes explicar las transformaciones de la variable dependiente (Desplazamiento, reflexión y cambio de escala)</li>
+                            <li>Me podrías explicar las siguientes propiedades de la señal (Simetría, periodicidad y causalidad)</li>
+
+                        </ul>
+                        <button onclick="volverATema('tema1')">Cerrar</button>
+                    </div>
+                </li>
+                <li>
+                    <button onclick="mostrarPregunta('pregunta3', 'tema1')">3. Estudios de señales básicas.</button>
+                    <div id="pregunta3-panel-tema1" class="pregunta-panel">
+                        <h3>Frases para IA:</h3>
+                        <ul>
+                            <li>¿Cuáles son las señales básicas en el dominio del tiempo?</li>
+                            <li>Podrias explicarme los conceptos de energia y potencia de una señal tanto en tiempo continuo como discreto</li>
+                        </ul>
+                        <button onclick="volverATema('tema1')">Cerrar</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="navigation-buttons">
+            <button class="anterior" onclick="irATema('tema4')">Tema Anterior</button>
+            <button onclick="volverAlMenu()">Volver al Menú Principal</button>
+            <button class="siguiente" onclick="irATema('tema2')">Siguiente Tema</button>
+        </div>
+    </div>
+
+
+
+    <!-- Panel para Tema 2 //100%-->
+    <div class="tema-panel" id="tema2-panel">
+        <h2>Tema 2: Sistemas en el dominio del tiempo</h2>
+        <div class="scrollable-container">
+            <ul>
+                <li>
+                    <button onclick="mostrarPregunta('pregunta1', 'tema2')">1. Definición de sistemas y de sus propiedades.</button>
+                    <div id="pregunta1-panel-tema2" class="pregunta-panel">
+                        <h3>Frases para IA:</h3>
+                        <ul>
+                            <li>El tema que me gustaria abordar se llama "Sistemas en el dominio del tiempo", por lo que si le parece bien podria usted empezar definiendo que es un sistema </li>
+                            <li>Me podrías definir también las siguientes propiedades: Linealidad, invarianza en el tiempo, causalidad, memoria ,estabilidad e invertibilidad </li>
+                            <li>Me podrias explicar que es la interconexion en serie o cascada en lo referido a la interconexion de sistemas</li>
+                            <li>Podrias explicarme de una manera similar la interconexión en paralelo y la interconexión de realimentación</li>
+                        </ul>
+                        <button onclick="volverATema('tema2')">Cerrar</button>
+                    </div>
+                </li>
+                <li>
+
+                    <button onclick="mostrarPregunta('pregunta2', 'tema2')">2. Sistemas lineales e invariantes en el tiempo (LTI).</button>
+                    <div id="pregunta2-panel-tema2" class="pregunta-panel">
+                        <h3>Frases para IA:</h3>
+                        <ul>
+                            <li>Me podría ahora definir que es un sistema LTI, dandome ejemplos explicativos</li>
+
+                        </ul>
+                        <button onclick="volverATema('tema2')">Cerrar</button>
+                    </div>
+                </li>
+                <li>
+
+                    <button onclick="mostrarPregunta('pregunta3', 'tema2')">3. Representación de señales en términos de impulsos.</button>
+                    <div id="pregunta3-panel-tema2" class="pregunta-panel">
+                        <h3>Frases para IA:</h3>
+                        <ul>
+                            <li>Me podría explicar la suma de convolución en tiempo discreto (TD)</li>
+
+                        </ul>
+                        <button onclick="volverATema('tema2')">Cerrar</button>
+                    </div>
+                </li>
+                <!-- Añadir más preguntas aquí -->
+                <li>
+
+                    <button onclick="mostrarPregunta('pregunta4', 'tema2')">4. Sistemas de tiempo discreto lineales e invariantes en el tiempo.</button>
+                    <div id="pregunta4-panel-tema2" class="pregunta-panel">
+                        <h3>Frases para IA:</h3>
+                        <ul>
+                            <li>Me podria decir las propiedades de la suma de la convolución</li>
+                        
+                        </ul>
+                        <button onclick="volverATema('tema2')">Cerrar</button>
+                    </div>
+                </li>
+                <li>
+
+                    <button onclick="mostrarPregunta('pregunta5', 'tema2')">5. Sistemas de tiempo continuo lineales e invariantes en el tiempo. </button>
+                    <div id="pregunta5-panel-tema2" class="pregunta-panel">
+                        <h3>Frases para IA:</h3>
+                        <ul>
+                            <li>Ahora nos centramos en los sistemas LTI en el dominio del tiempo continuo</li>
+                            <li>Para acabar con la integración de convolución, me podría decir sus propiedades</li>                                
+                        </ul>
+                        <button onclick="volverATema('tema2')">Cerrar</button>
+                    </div>
+                </li>
+                <li>
+
+                    <button onclick="mostrarPregunta('pregunta6', 'tema2')">6. Propiedades de los sistemas lineales e invariantes en el tiempo. </button>
+                    <div id="pregunta6-panel-tema2" class="pregunta-panel">
+                        <h3>Frases para IA:</h3>
+                        <ul>
+                            <li>En lo que se refiere a sistemas LTI, tanto en TD como en TD, me podrias caracterizar la propiedad de "memoria"</li>
+                            <li>Me podrias definir la propiedad de causalidad para este tipo de sistemas</li>
+                            <li>Me podrias definir la propiedad de estabilidad para este tipo de sistemas</li>
+                            <li>Y como última propiedad para los sistemas LTI, me podria definir la invertibilidad tanto en TC como en TD</li>
+                            <li></li>
+                        </ul>
+                        <button onclick="volverATema('tema2')">Cerrar</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="navigation-buttons">
+            <button class="anterior" onclick="irATema('tema1')">Tema Anterior</button>
+            <button onclick="volverAlMenu()">Volver al Menú Principal</button>
+            <button class="siguiente" onclick="irATema('tema3')">Siguiente Tema</button>
+        </div>
+    </div>
+
+
+
+    <!-- Panel para Tema 3 //100%-->
+    <div class="tema-panel" id="tema3-panel">
+        <h2>Tema 3: Análisis de Fourier para señales y sistemas de tiempo continuo</h2>
+        <div class="scrollable-container">
+            <ul>
+                <li>
+                    <button onclick="mostrarPregunta('pregunta1', 'tema3')">1. Introducción.</button>
+                    <div id="pregunta1-panel-tema3" class="pregunta-panel">
+                        <h3>Frases para IA:</h3>
+                        <ul>
+                            <li>El tercer tema de la asignatura se llama "Análisis de Fourier para señales y sistemas de tiempo continuo"</li>
+                            <li>Me podrías hacer una pequeña introducción sobre qué es y en qué se basa</li>
+                        </ul>
+                        <button onclick="volverATema('tema3')">Cerrar</button>
+                    </div>
+                </li>
+                <li>
+                    <button onclick="mostrarPregunta('pregunta2', 'tema3')">2. Respuesta de sistemas continuos LTI a señales exponenciales complejas.</button>
+                    <div id="pregunta2-panel-tema3" class="pregunta-panel">
+                        <h3>Frases para IA:</h3>
+                        <ul>
+                            <li>Como es la respuesta de sistemas continuos LTI a señales exponenciales complejas</li>
+                            <li>Es correcto decir que la respuesta de sistemas LTI a una combinación lineal de exponenciales complejas es 
+                                <br> otra combinación de las mismas exponenciales, Exprésalo de forma matemáticamente por favor</li>
+                            <li>//Puedes expresar las funciones seno y coseno como exponenciales complejas</li>
+                        </ul>
+                        <button onclick="volverATema('tema3')">Cerrar</button>
+                    </div>
+                </li>
+                <li>
+                    <button onclick="mostrarPregunta('pregunta3', 'tema3')">3. Desarrollo en series de Fourier de señales periódicas.</button>
+                    <div id="pregunta3-panel-tema3" class="pregunta-panel">
+                        <h3>Frases para IA:</h3>
+                        <ul>
+                            <li>Me podrías decir cual es la ecuación de síntesis, CTFS^-1</li>
+                            <li>Me puedes desarrollar la ecuación de análisis, CTFS</li>
+                            <li>Cuales son las condiciones de existencia del CTFS</li>
+                            <li>Me podrías explicar que es el fenomeno de Gibbs</li>
+                            <li>//Me puedes decir la CTFS de las funciones seno y coseno?</li>
+
+                        </ul>
+                        <button onclick="volverATema('tema3')">Cerrar</button>
+                    </div>
+                </li>
+                <li>
+                    <button onclick="mostrarPregunta('pregunta4', 'tema3')">4. Transformada de Fourier para señales no periódicas.</button>
+                    <div id="pregunta4-panel-tema3" class="pregunta-panel">
+                        <h3>Frases para IA:</h3>
+                        <ul>
+                            <li>Me podrías explicar la ecuación de sintesis, CTFT^-1</li>
+                            <li>Me podrías explicar la ecuación de analisis, CTFT</li>
+                            <li>Me puedes explicar la condición de existencia de la CTFT</li>
+                            <li>Sabrías relacionarme la CTFT con los coeficientes de la CTFS</li>
+                            <li>Me podrías hacer una lista de las propiedades mas importantes de la CTFT</li>
+                        </ul>
+                        <button onclick="volverATema('tema3')">Cerrar</button>
+                    </div>
+                </li>
+                <li>
+                    <button onclick="mostrarPregunta('pregunta5', 'tema3')">5. Transformada de Fourier para señales periódicas.</button>
+                    <div id="pregunta5-panel-tema3" class="pregunta-panel">
+                        <h3>Frases para IA:</h3>
+                        <ul>
+                            <li>Como desarrollas en fourier el sumatorio de una exponencial por un coeficiente, mediante linealidad</li>
+
+                        </ul>
+                        <button onclick="volverATema('tema3')">Cerrar</button>
+                    </div>
+                </li>
+                <li>
+                    <button onclick="mostrarPregunta('pregunta6', 'tema3')">6. Respuesta en frecuencia de sistemas continuos.</button>
+                    <div id="pregunta6-panel-tema3" class="pregunta-panel">
+                        <h3>Frases para IA:</h3>
+                        <ul>
+                            <li>Me podrías decir la respuesta en frecuencia H(w) dado un sistema LTI con respuesta al impulso h(t)</li>
+                            <li>Que es y como se calcula el módulo y la fase de la respuesta en frecuencia, teniendo en cuenta la entrada y salida del sistema </li>                           
+
+
+                        </ul>
+                        <button onclick="volverATema('tema3')">Cerrar</button>
+                    </div>
+                </li>
+
+                <li>
+                    <button onclick="mostrarPregunta('pregunta7', 'tema3')">7. Muestreo ideal.</button>
+                    <div id="pregunta7-panel-tema3" class="pregunta-panel">
+                        <h3>Frases para IA:</h3>
+                        <ul>
+                            <li>Me podrías explicar que es el teorema del muestreo</li>
+                            <li>Me puedes explicar la conversión de analogico a digital (A/D)</li>
+                            <li>Como se obtiene una señal analogica x(t) a partir de sus muestras x[n] obtenias con una frecuencias de muestreo fs</li>
+                        </ul>
+                        <button onclick="volverATema('tema3')">Volver a Tema 3</button>
+                    </div>
+                </li>
+
+                <li>
+                    <button onclick="mostrarPregunta('pregunta8', 'tema3')">8. Aplicación de la Transformada de Laplace a los sistemas LTI.</button>
+                    <div id="pregunta8-panel-tema3" class="pregunta-panel">
+                        <h3>Frases para IA:</h3>
+                        <ul>
+                            <li>Que es el diagrama de polos y ceros en tiempo continuo</li>
+                            <li>Me podrias decir las propiedades de la ROC</li>
+
+                        </ul>
+                        <button onclick="volverATema('tema3')">Cerrar</button>
+                    </div>
+                </li>
+
+                <li>
+                    <button onclick="mostrarPregunta('pregunta9', 'tema3')">9. La función del sistema de sistemas continuos.</button>
+                    <div id="pregunta9-panel-tema3" class="pregunta-panel">
+                        <h3>Frases para IA:</h3>
+                        <ul>
+                            <li>Me puedes explicar que es la funcion de sistema en tiempo continuo</li>
+                        </ul>
+                        <button onclick="volverATema('tema3')">Cerrar</button>
+                    </div>
+                </li>
+
+                <li>
+                    <button onclick="mostrarPregunta('pregunta10', 'tema3')">10. Sistemas descritos por ecuaciones diferenciales lineales de coeficientes constantes.</button>
+                    <div id="pregunta10-panel-tema3" class="pregunta-panel">
+                        <h3>Frases para IA:</h3>
+                        <ul>
+                            <li>Me podrías decir la Respuesta en frecuencia de sistemas caracterizados por EDLCC</li>
+                            <li>me podrias expresar H(w) (Y(w)/X(w)) en funcion de un sistema descrito por una edlcc </li>
+                        </ul>
+                        <button onclick="volverATema('tema3')">Volver a Tema 3</button>
+                    </div>
+                </li>
+
+                <li>
+                    <button onclick="mostrarPregunta('pregunta11', 'tema3')">11. Introducción al filtrado.</button>
+                    <div id="pregunta11-panel-tema3" class="pregunta-panel">
+                        <h3>Frases para IA:</h3>
+                        <ul>
+                            <li>Empecemos con la parte de introducción al filtrado, me puedes explicar y decir la funcion de transferencia H(s), 
+                                <br> respuesta en frecuencia H(w)  y respuesta en amplitud  |H(w)| de un filtro paso bajo de primer orden</li>
+                            <li>Me puedes explicar lo mismo pero ahora con un filtro paso bajo de 2º orden? (mostrando su funcion de transferencia,
+                                 <br> su respuesta en frencuencia y respuesta en amplitud)</li>
+                            <li>Me puedes decir las 3 formulas para un filtro paso alto de 1 y 2 orden</li>
+                        </ul>
+                        <button onclick="volverATema('tema3')">Volver a Tema 3</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="navigation-buttons">
+            <button class="anterior" onclick="irATema('tema2')">Tema Anterior</button>
+            <button onclick="volverAlMenu()">Volver al Menú Principal</button>
+            <button class="siguiente" onclick="irATema('tema4')">Siguiente Tema</button>
+        </div>
+    </div>
+
+
+    <!-- Panel para Tema 4 //100% revisar pero casi perfe-->
+    <div class="tema-panel" id="tema4-panel">
+        <h2>Tema 4: Análisis de Fourier para señales y sistemas de tiempo discreto</h2>
+        <div class="scrollable-container">
+            <ul>
+                <li>
+                    <button onclick="mostrarPregunta('pregunta1', 'tema4')">1. Introducción.</button>
+                    <div id="pregunta1-panel-tema4" class="pregunta-panel">
+                        <h3>Frases para IA:</h3>
+                        <ul>
+                            <li>Me puedes decir la relación que existe entre un autovalor y una autofuncion de un sistema LTI</li>
+                        </ul>
+                        <button onclick="volverATema('tema4')">Cerrar</button>
+                    </div>
+                </li>
+                <li>
+                    <button onclick="mostrarPregunta('pregunta2', 'tema4')">2. Respuesta de sistemas discretos LTI a señales exponenciales complejas.</button>
+                    <div id="pregunta2-panel-tema4" class="pregunta-panel">
+                        <h3>Frases para IA:</h3>
+                        <ul>
+                            <li>Como es la respuesta de sistemas LTI a señales exponenciales complejas</li>
+                        </ul>
+                        <button onclick="volverATema('tema4')">Cerrar</button>
+                    </div>
+                </li>
+                <li>
+                    <button onclick="mostrarPregunta('pregunta3', 'tema4')">3. Representación de señales periódicas: la serie discreta de Fourier.</button>
+                    <div id="pregunta3-panel-tema4" class="pregunta-panel">
+                        <h3>Frases para IA:</h3>
+                        <ul>
+                            <li>Me puedes decir y explicar la ecuacion de sintensis de la DTFS</li>
+                            <li>Me puedes explicar como sacar los coeficientes de la DTFS</li>
+                        </ul>
+                        <button onclick="volverATema('tema4')">Cerrar</button>
+                    </div>
+                </li>
+                <!-- Añadir más preguntas aquí -->
+                <li>
+                    <button onclick="mostrarPregunta('pregunta4', 'tema4')">4. Transformada de Fourier para secuencias no periódicas.</button>
+                    <div id="pregunta4-panel-tema4" class="pregunta-panel">
+                        <h3>Frases para IA:</h3>
+                        <ul>
+                            <li>Me puedes explicar como se calcula la transformada de fourier en tiempo discreto (DTFT) para secuencias no periodicas</li>
+                            <li>Me podrias explicar la ecuación de sintesis de la DTFT</li>
+
+                        </ul>
+                        <button onclick="volverATema('tema4')">Cerrar</button>
+                    </div>
+                </li>
+                <li>
+                    <button onclick="mostrarPregunta('pregunta5', 'tema4')">5. Transformada de Fourier para secuencias periódicas.</button>
+                    <div id="pregunta5-panel-tema4" class="pregunta-panel">
+                        <h3>Frases para IA:</h3>
+                        <ul>
+                            <li>Me podrías explicar ahora la transformada de fourier (DTFT) para señales periodicas expresandolo con X(ohm) y el sumatorio de 2pi</li>
+                        </ul>
+                        <button onclick="volverATema('tema4')">Cerrar</button>
+                    </div>
+                </li>
+                <li>
+                    <button onclick="mostrarPregunta('pregunta6', 'tema4')">6. Respuesta en frecuencia de sistemas discretos.</button>
+                    <div id="pregunta6-panel-tema4" class="pregunta-panel">
+                        <h3>Frases para IA:</h3>
+                        <ul>
+                            <li>Que representa el modulo y la fase de la respuesta en frecuencia H(omega)</li>
+                            <li>Como se calcula ambos en función de la entrada y de la salida</li>
+
+                        </ul>
+                        <button onclick="volverATema('tema4')">Cerrar</button>
+                    </div>
+                </li>
+                <li>
+                    <button onclick="mostrarPregunta('pregunta7', 'tema4')">7. Estudio de señales y sistemas discretos en el dominio transformado Z.</button>
+                    <div id="pregunta7-panel-tema4" class="pregunta-panel">
+                        <h3>Frases para IA:</h3>
+                        <ul>
+                            <li>Que es la transformada Z</li>
+                            <li>Me puedes explicar que es el diagrama de polos y ceros en tiempo discreto</li>
+                            <li>Me podrias relacionar la causalidad y no causalidad de un sistema con su ROC?</li>
+                            <li>Podrias explicar de una forma sencilla las propiedades de la TZ (linealidad, desplazamiento y convolución)</li>
+                            <li>Podrías decirme como afecta cada propiedad de esta a la región de convergencia</li>
+                            <li>Como se puede obtener una señal x[n] a partir de X(z) y su ROC</li>
+                            <li>//check//En la inversion por descomposcion en fracciones, me puedes explicar como es cuando el x(z) tiene un polo de orden m z= pi</li>
+                            <li>Si tenemos X(z) y ROC y aplicamos al transformada z inversa, ¿la x[n] que obtenemos es univoca?</li>
+                            
+                        </ul>
+                        <button onclick="volverATema('tema4')">Cerrar</button>
+                    </div>
+                </li>
+                <li>
+                    <button onclick="mostrarPregunta('pregunta8', 'tema4')">8. La función de sistema de sistemas discretos</button>
+                    <div id="pregunta8-panel-tema4" class="pregunta-panel">
+                        <h3>Frases para IA:</h3>
+                        <ul>
+                            <li>Me puedes explicar que es la funcion de sistema en tiempo discreto</li>
+                            <li>Puedes explicarme las propiedades de la función de sistema (memoria, causalidad, estabilidad e invertibilidad)</li>
+                            <li>Podrías explicar brevemente y poner un ejemplo explicativo sobre la interconexión de sistemas LTI de tiempo discreto en serie</li>
+                            <li>Me podrias explicar lo mismo, pero en vez de en serie en paralelo y realimentada</li>
+                            <li>Me podrias juntar las 3 opciones en resumen</li>
+                        <button onclick="volverATema('tema4')">Cerrar</button>
+                    </div>
+                </li>
+                <li>
+                    <button onclick="mostrarPregunta('pregunta9', 'tema4')">9. Sistemas de tiempo discreto descritos por ecuaciones en diferencias lineales de coeficientes constantes.</button>
+                    <div id="pregunta9-panel-tema4" class="pregunta-panel">
+                        <h3>Frases para IA:</h3>
+                        <ul>
+                            <li>Puedes expreasr H(z) para sistemas LTI discretos descrito por edlcc</li>
+                        </ul>
+                        <button onclick="volverATema('tema4')">Cerrar</button>
+                    </div>
+                </li>
+                <li>
+                    <button onclick="mostrarPregunta('pregunta10', 'tema4')">10. Introducción al filtrado.</button>
+                    <div id="pregunta10-panel-tema4" class="pregunta-panel">
+                        <h3>Frases para IA:</h3>
+                        <ul>
+                            <li>Me puedes explicar que es un filtro FIR e IIR</li>
+                            <li>Me podrías decir la ubicación de los polos para cada caso</li>
+
+                        </ul>
+                        <button onclick="volverATema('tema4')">Cerrar</button>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+        <div class="navigation-buttons">
+            <button class="anterior" onclick="irATema('tema3')">Tema Anterior</button>
+            <button onclick="volverAlMenu()">Volver al Menú Principal</button>
+            <button class="siguiente" onclick="irATema('tema1')">Siguiente Tema</button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+/* Reinicio básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Fondo desenfocado */
+body, html {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.background-blur {
+    background: url('../imag/logoUPM-background.png') no-repeat center center fixed;
+    background-size: cover;
+    filter: blur(4px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+/* Panel Central */
+.center-panel {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    z-index: 1;
+    position: relative;
+}
+
+h2 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+select, button {
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #2826b0;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3267cbda;
+}
+
+.center-panel .asignatura {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #555;
+    text-align: center;
+}
+
+/* Panel de Tema */
+.tema-panel {
+    display: none;
+    background: rgba(255, 255, 255, 1);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.scrollable-container {
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.scrollable-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.scrollable-container li {
+    margin: 5px 0;
+}
+
+.scrollable-container button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+    background-color: #2826b0;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.scrollable-container button:hover {
+    background-color: #3267cbda;
+}
+
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.navigation-buttons button {
+    flex: 1;
+    margin: 0 5px;
+}
+
+.navigation-buttons button.anterior {
+    background-color: #ff5833;
+}
+
+.navigation-buttons button.anterior:hover {
+    background-color: #ff6b49;
+}
+
+.navigation-buttons button.siguiente {
+    background-color: #4CAF50;
+}
+
+.navigation-buttons button.siguiente:hover {
+    background-color: #45a049;
+}
+
+/* Botones de Imagen */
+.image-buttons {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
+}
+
+.image-button {
+    height: 80px;
+    transition: transform 0.3s ease;
+}
+
+.image-button.left {
+    margin-right: auto;
+}
+
+.image-button.right {
+    margin-left: auto;
+}
+
+.image-button:hover {
+    transform: scale(1.1);
+}
+
+/* Panel de Información */
+.info-panel {
+    display: none;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    z-index: 1;
+    white-space: pre-line;  /*para que cada frase nueva sea en otra linea,  se podria hacer en html con <br>*/ 
+}
+
+.info-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    cursor: pointer;
+}
+
+.info-button img {
+    height: 20px;
+}
